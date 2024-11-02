@@ -1,0 +1,15 @@
+.btn {
+  background-color: #fff;
+  border: 2px solid rgba(16, 16, 16, 0.05);
+  border-radius: 0;
+  padding: 10px 20px;
+  outline: 0;
+  text-decoration: none;
+  font-size: 14px;
+
+  transition: all 0.2s linear;
+
+  &:hover {
+    background-color: rgba(16, 16, 16, 0.05);
+  }
+}

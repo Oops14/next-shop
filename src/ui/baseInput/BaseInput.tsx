@@ -2,7 +2,7 @@ import { FC, InputHTMLAttributes } from 'react'
 
 import clsx from 'clsx'
 
-import s from './Input.module.scss'
+import s from './BaseInput.module.scss'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 

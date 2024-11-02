@@ -1,6 +1,8 @@
+'use server'
+
 import Link from 'next/link'
 
-import Input from '@/ui/Input'
+import Input from '@/ui/baseInput/BaseInput'
 
 import s from './Header.module.scss'
 
@@ -26,9 +28,9 @@ const Header = () => {
         <div className={s.header_bottom}>
           <div className={s.header_bottom__inner}>
             <ul className={s.header_bottom__menu}>
-              {menuItems.map((i) => {
+              {menuItems.map((i, index) => {
                 return (
-                  <li>
+                  <li key={index}>
                     <Link href="/">{i.title}</Link>
                   </li>
                 )

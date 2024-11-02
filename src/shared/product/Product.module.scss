@@ -1,0 +1,35 @@
+.product_bottom {
+  text-align: center;
+}
+
+.product_title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.product_price {
+  margin-bottom: 15px;
+}
+
+.add_to_cart_btn {
+  font-size: 13px;
+  font-weight: 600 !important;
+}
+
+.product_image {
+  overflow: hidden;
+
+  a {
+    display: block;
+
+    img {
+      transition: all 0.5s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        scale: 1.1;
+      }
+    }
+  }
+}
