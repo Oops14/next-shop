@@ -115,93 +115,11 @@ h6 {
   }
 }
 
-// ------------------------------------------
-// HELPER CLASSES
-// ------------------------------------------
-
-.text-center {
-  text-align: center;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.light-background {
-  background-color: rgb(218, 138, 103, 0.1);
-}
-
-.flex-align {
-  display: flex;
-  align-items: center;
-}
-
-.light-color {
-  color: rgb(172, 172, 172);
-}
-
-.primary-color {
-  color: #da8a67;
-}
-
-.bg-red {
-  background-color: #da8a67;
-}
-
-.flex-shrink {
-  flex-shrink: 0;
-}
-
-.center-icon {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.full-screen {
-  width: 100%;
-}
-
 textarea {
   width: 100%;
   padding: 20px;
   border: 2px solid rgba(16, 16, 16, 0.05);
   outline: none;
-}
-
-// .btn,
-// input[type='button'],
-// input[type='submit'],
-// button {
-//   background-color: #fff;
-//   border: 2px solid rgba(16, 16, 16, 0.05);
-//   border-radius: 0;
-//   padding: 10px 20px;
-//   outline: 0;
-//   text-decoration: none;
-//   font-size: 14px;
-// }
-
-ol {
-  li {
-    list-style: decimal;
-  }
-}
-
-ul {
-  li {
-    list-style: disc;
-  }
-}
-
-ol,
-ul {
-  padding-left: 40px;
-  margin-bottom: 20px;
-
-  li {
-    margin-bottom: 10px;
-  }
 }
 
 table {
@@ -234,7 +152,7 @@ table {
 }
 
 a {
-  color: orange;
+  color: rgb(175, 175, 239);
 }
 
 strong {
