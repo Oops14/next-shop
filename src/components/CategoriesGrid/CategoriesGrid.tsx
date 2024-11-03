@@ -16,9 +16,9 @@ const categories = [
 
 const CategoriesGrid = () => {
   return (
-    <div className={s.categoeis_grid}>
-      {categories.map((i) => {
-        return <Category title={i.title} img={i.img} quantity={0} />
+    <div className={s.categories_grid}>
+      {categories.map((i, index) => {
+        return <Category key={index} title={i.title} img={i.img} quantity={0} />
       })}
     </div>
   )

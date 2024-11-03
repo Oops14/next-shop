@@ -14,7 +14,6 @@ interface ProductProps {
   price: string
 }
 
-// TODO: Button as a separate element.
 const Product: FC<ProductProps> = ({ title, img, price }) => {
   return (
     <div className={s.product_grid_item}>
