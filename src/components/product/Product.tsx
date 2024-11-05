@@ -6,15 +6,13 @@ import { FC } from 'react'
 
 import BaseButton from '@/ui/baseButton/BaseButton'
 
+import { ProductType } from '@/types/ProductType'
+
+import img from '@/assets/images/hoodie_3_front.webp'
+
 import s from './Product.module.scss'
 
-interface ProductProps {
-  title: string
-  img: StaticImageData
-  price: string
-}
-
-const Product: FC<ProductProps> = ({ title, img, price }) => {
+const Product: FC<ProductType> = ({ title, description }) => {
   return (
     <div className={s.product_grid_item}>
       <div className={s.product_top}>
@@ -28,7 +26,8 @@ const Product: FC<ProductProps> = ({ title, img, price }) => {
         <div className={s.product_title}>
           <a href="#">{title}</a>
         </div>
-        <div className={s.product_price}>£{price}</div>
+        <p>{description}</p>
+        <div className={s.product_price}>Free</div>
         <BaseButton>Add to cart</BaseButton>
       </div>
     </div>

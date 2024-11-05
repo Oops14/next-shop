@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import Header from '@/shared/header/Header'
+import Footer from '@/shared/footer/Footer'
 
 import '../assets/styles/reset.scss'
 import '../assets/styles/globals.scss'
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
