@@ -1,14 +1,14 @@
 'use client'
 
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 
 import { FC } from 'react'
 
-import BaseButton from '@/ui/baseButton/BaseButton'
+import img from '@/assets/images/hoodie_3_front.webp'
 
 import { ProductType } from '@/types/ProductType'
 
-import img from '@/assets/images/hoodie_3_front.webp'
+import BaseButton from '@/ui/baseButton/BaseButton'
 
 import s from './Product.module.scss'
 

@@ -1,14 +1,20 @@
-'use server'
+'use client'
 
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 import Input from '@/ui/baseInput/BaseInput'
 
 import s from './Header.module.scss'
 
-const menuItems = [{ title: 'Home' }, { title: 'Blog' }, { title: 'Shop' }]
+const menuItems = [
+  { title: 'Home', path: '/' },
+  { title: 'Shop', path: '/products' },
+]
 
 const Header = () => {
+  const pathname = usePathname()
+
   return (
     <div className={s.main_header}>
       <div className={s.container}>
@@ -29,9 +35,13 @@ const Header = () => {
           <div className={s.header_bottom__inner}>
             <ul className={s.header_bottom__menu}>
               {menuItems.map((i, index) => {
+                const isActive = pathname === i.path
+
                 return (
                   <li key={index}>
-                    <Link href="/">{i.title}</Link>
+                    <Link className={isActive ? s.active : ''} href={i.path}>
+                      {i.title}
+                    </Link>
                   </li>
                 )
               })}

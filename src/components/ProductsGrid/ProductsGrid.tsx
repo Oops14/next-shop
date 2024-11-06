@@ -2,7 +2,7 @@
 
 import { FC } from 'react'
 
-import Product from '@/components/product/Product'
+import Product from '@/components/Product/Product'
 
 import { ProductType } from '@/types/ProductType'
 

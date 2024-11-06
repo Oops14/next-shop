@@ -1,0 +1,22 @@
+.r_textarea {
+  height: 300px;
+  width: 100%;
+  margin-bottom: 30px;
+
+  border-radius: 10px;
+}
+
+.r_form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.r_btn {
+  border-radius: 10px !important;
+  width: 100%;
+}
+
+.r_name {
+  height: 50px !important;
+  margin-bottom: 30px;
+}
