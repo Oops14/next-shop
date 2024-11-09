@@ -28,7 +28,10 @@ const Product: FC<ProductType> = ({ title, description }) => {
         </div>
         <p>{description}</p>
         <div className={s.product_price}>Free</div>
-        <BaseButton>Add to cart</BaseButton>
+        <div className={s.bottom_buttons}>
+          <BaseButton>Add to cart</BaseButton>
+          <BaseButton>Leave Review</BaseButton>
+        </div>
       </div>
     </div>
   )

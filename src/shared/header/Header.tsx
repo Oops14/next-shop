@@ -24,7 +24,7 @@ const Header = () => {
           </div>
           <div className={s.header_top__right_menu}>
             <div className={s.my_account}>
-              <Link href="/">My Account</Link>
+              <Link href="/login">Login</Link>
             </div>
             <div className={s.search}>
               <Input placeholder="Search for products" type="text" />

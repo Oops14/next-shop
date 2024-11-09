@@ -1,0 +1,22 @@
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.title_center {
+  text-align: center;
+}
+
+.login_page {
+  height: 100%;
+  min-height: 500px;
+}

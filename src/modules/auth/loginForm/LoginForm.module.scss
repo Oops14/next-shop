@@ -1,0 +1,13 @@
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login_form__input {
+  height: 50px;
+}
+
+.login_form__button {
+  font-size: 20px;
+}

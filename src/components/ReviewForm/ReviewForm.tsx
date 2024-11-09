@@ -9,6 +9,9 @@ import BaseInput from '@/ui/baseInput/BaseInput'
 
 import s from './ReviewForm.module.scss'
 
+/**
+ * TODO: Implement Error handing.
+ */
 const ReviewForm = ({ productId }: { productId: string }) => {
   const [rating, setRating] = useState(0)
   const [review, setReview] = useState('')
@@ -36,7 +39,6 @@ const ReviewForm = ({ productId }: { productId: string }) => {
         type="number"
         className={s.r_name}
         placeholder="Set the rating"
-        value={rating}
         onChange={(e) => setRating(e.currentTarget.valueAsNumber)}
       />
       <textarea className={s.r_textarea} value={review} onChange={(e) => setReview(e.target.value)}></textarea>
