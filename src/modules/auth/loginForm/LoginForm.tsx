@@ -4,13 +4,16 @@ import { useRouter } from 'next/navigation'
 
 import React, { useState } from 'react'
 
-import { login, register } from '@/services/auth'
+import { login, register } from '@/modules/auth'
+
+import { createSession } from '@/services/session'
+
+import { ApiResponseToken } from '@/types/ApiType'
 
 import BaseButton from '@/ui/baseButton/BaseButton'
 import BaseInput from '@/ui/baseInput/BaseInput'
 
 import s from './LoginForm.module.scss'
-import { createSession } from '@/services/session'
 
 const LoginForm = () => {
   const [phone, setPhone] = useState('')
@@ -22,11 +25,11 @@ const LoginForm = () => {
 
   const handleLogin = async () => {
     try {
-      const data = await login(phone, code)
+      const data: ApiResponseToken = await login(phone, code)
 
       setError(null)
 
-      await createSession(data.token)
+      await createSession(data.data.token)
 
       router.push('/')
     } catch (err: any) {
@@ -38,7 +41,6 @@ const LoginForm = () => {
     try {
       const data = await register(phone)
 
-      console.log(data)
       alert(data.data.message)
 
       setIsLogin(true)

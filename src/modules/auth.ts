@@ -1,5 +1,7 @@
 'use server'
 
+import { cookies } from 'next/headers'
+
 const BASE_URL = 'http://localhost:8000/api/v1'
 
 export const login = async (phone: string, code: string) => {
@@ -18,12 +20,12 @@ export const login = async (phone: string, code: string) => {
   return await res.json()
 }
 
-export const logout = async () => {
-  return false
-}
-
 export const isAuthenticated = async () => {
-  return false
+  const cookieStore = await cookies()
+  const token = cookieStore.get('session')
+  const value = !!token
+
+  return { value }
 }
 
 export const register = async (phone: string) => {

@@ -1,7 +1,11 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
+
+import { FC } from 'react'
+
+import { deleteSession } from '@/services/session'
 
 import Input from '@/ui/baseInput/BaseInput'
 
@@ -12,8 +16,19 @@ const menuItems = [
   { title: 'Shop', path: '/products' },
 ]
 
-const Header = () => {
+interface HeaderProps {
+  isAuthenticated: boolean
+}
+
+const Header: FC<HeaderProps> = ({ isAuthenticated }) => {
   const pathname = usePathname()
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    await deleteSession()
+
+    router.push('/login')
+  }
 
   return (
     <div className={s.main_header}>
@@ -24,7 +39,13 @@ const Header = () => {
           </div>
           <div className={s.header_top__right_menu}>
             <div className={s.my_account}>
-              <Link href="/login">Login</Link>
+              {isAuthenticated ? (
+                <Link href="/login" onClick={handleLogout}>
+                  Logout
+                </Link>
+              ) : (
+                <Link href="/login">Login</Link>
+              )}
             </div>
             <div className={s.search}>
               <Input placeholder="Search for products" type="text" />

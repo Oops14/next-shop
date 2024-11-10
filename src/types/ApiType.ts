@@ -14,3 +14,11 @@ export type ApiResponse = {
   meta: Record<string, unknown>
   errors: (string | null)[]
 }
+
+export interface ApiResponseToken {
+  data: {
+    token: string
+  }
+  meta: Record<string, unknown>
+  errors: (string | null)[]
+}
