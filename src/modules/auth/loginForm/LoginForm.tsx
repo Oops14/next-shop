@@ -8,7 +8,7 @@ import { login, register } from '@/modules/auth'
 
 import { createSession } from '@/services/session'
 
-import { ApiResponseToken } from '@/types/ApiType'
+import { TokenApiResponse } from '@/types/ApiType'
 
 import BaseButton from '@/ui/baseButton/BaseButton'
 import BaseInput from '@/ui/baseInput/BaseInput'
@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   const handleLogin = async () => {
     try {
-      const data: ApiResponseToken = await login(phone, code)
+      const data: TokenApiResponse = await login(phone, code)
 
       setError(null)
 

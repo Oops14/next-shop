@@ -9,7 +9,7 @@ interface ReviewsProps {
 }
 
 const Reviews: FC<ReviewsProps> = async ({ params }) => {
-  const { product_id } = await params
+  const { product_id } = params
 
   return (
     <div className={s.container}>
