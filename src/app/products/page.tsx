@@ -2,14 +2,14 @@ import ProductsGrid from '@/components/ProductsGrid/ProductsGrid'
 
 import { getAllProducts } from '@/services/api'
 
-import { ApiResponse } from '@/types/ApiType'
+import { ProductsApiResponse } from '@/types/ApiType'
 
 import Typography from '@/ui/typography/Typography'
 
 import s from '../page.module.scss'
 
 const Shop = async () => {
-  const res: ApiResponse = await getAllProducts()
+  const res: ProductsApiResponse = await getAllProducts()
   const products = res.data.items
 
   return (
