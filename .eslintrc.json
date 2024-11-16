@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "extends": [
     "next/core-web-vitals",
     "next/typescript"
@@ -7,3 +8,10 @@
     "@typescript-eslint/no-empty-object-type": "off"
   }
 }
+=======
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-empty-object-type": "off"
+  }
+}
+>>>>>>> 8f517d0dc51b93b9f70a1f70c9d1d7a82d1f45ee

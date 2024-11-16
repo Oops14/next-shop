@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 'use server'
 
+=======
+>>>>>>> 8f517d0dc51b93b9f70a1f70c9d1d7a82d1f45ee
 import Image from 'next/image'
 import Link from 'next/link'
 
