@@ -4,18 +4,17 @@ import { useRouter } from 'next/navigation'
 
 import React, { useState } from 'react'
 
-import { login, register } from '@/modules/auth'
+import LoginForm from '@/modules/auth/form/loginForm/LoginForm'
+import RegisterForm from '@/modules/auth/form/registerForm/RegisterForm'
 
+import { login, register } from '@/services/auth'
 import { createSession } from '@/services/session'
 
-import { ApiResponseToken } from '@/types/ApiType'
+import { TokenApiResponse } from '@/types/ApiType'
 
-import BaseButton from '@/ui/baseButton/BaseButton'
-import BaseInput from '@/ui/baseInput/BaseInput'
+import s from './Form.module.scss'
 
-import s from './LoginForm.module.scss'
-
-const LoginForm = () => {
+const Form = () => {
   const [phone, setPhone] = useState('')
   const [code, setCode] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -25,12 +24,11 @@ const LoginForm = () => {
 
   const handleLogin = async () => {
     try {
-      const data: ApiResponseToken = await login(phone, code)
+      const data: TokenApiResponse = await login(phone, code)
 
       setError(null)
 
       await createSession(data.data.token)
-
       router.push('/')
     } catch (err: any) {
       setError(err.message)
@@ -44,7 +42,6 @@ const LoginForm = () => {
       alert(data.data.message)
 
       setIsLogin(true)
-
       setError(null)
     } catch (err: any) {
       setError(err.message)
@@ -56,54 +53,29 @@ const LoginForm = () => {
       <h1>{isLogin ? 'Login' : 'Register'}</h1>
       <div className={s.login_form}>
         {isLogin ? (
-          <div className={s.login_form}>
-            <BaseInput
-              type="tel"
-              placeholder="Phone number"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className={s.login_form__input}
-            />
-            <BaseInput
-              type="text"
-              placeholder="Code"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              className={s.login_form__input}
-            />
-
-            <BaseButton onClick={handleLogin} className={s.login_form__button}>
-              Login
-            </BaseButton>
-            <BaseButton onClick={() => setIsLogin(false)} className={s.login_form__button}>
-              Register
-            </BaseButton>
-
-            {error && <p>{error}</p>}
-          </div>
+          <LoginForm
+            phone={phone}
+            setPhone={setPhone}
+            code={code}
+            setCode={setCode}
+            error={error}
+            setError={setError}
+            isLogin={isLogin}
+            setIsLogin={setIsLogin}
+            handleLogin={handleLogin}
+          />
         ) : (
-          <div className={s.login_form}>
-            <BaseInput
-              type="tel"
-              placeholder="Phone number"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className={s.login_form__input}
-            />
-
-            <BaseButton onClick={handleRegister} className={s.login_form__button}>
-              Send code
-            </BaseButton>
-            <BaseButton onClick={() => setIsLogin(true)} className={s.login_form__button}>
-              Back to Login
-            </BaseButton>
-
-            {error && <p>{error}</p>}
-          </div>
+          <RegisterForm
+            phone={phone}
+            setPhone={setPhone}
+            error={error}
+            setIsLogin={setIsLogin}
+            handleRegister={handleRegister}
+          />
         )}
       </div>
     </>
   )
 }
 
-export default LoginForm
+export default Form

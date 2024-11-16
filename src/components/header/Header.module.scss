@@ -7,7 +7,7 @@
 }
 
 .main_header {
-  height: 205px;
+  height: 130px;
   background-color: #2c2d34;
   color: #d5d9db;
 
@@ -35,19 +35,7 @@
   flex: 1 1 0;
 }
 
-.header_bottom__menu {
-  display: flex;
-  align-items: center;
-  gap: 30px;
 
-  li {
-    list-style: none;
-
-    a {
-      color: #d5d9db;
-    }
-  }
-}
 
 .header_bottom__mini_cart {
   display: block;

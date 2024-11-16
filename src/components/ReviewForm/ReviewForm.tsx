@@ -9,20 +9,15 @@ import BaseInput from '@/ui/baseInput/BaseInput'
 
 import s from './ReviewForm.module.scss'
 
-/**
- * TODO: Implement Error handing.
- */
-const ReviewForm = ({ productId }: { productId: string }) => {
+const ReviewForm = ({ productId }: { productId: number }) => {
   const [rating, setRating] = useState(0)
   const [review, setReview] = useState('')
-
-  console.log(productId)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     try {
-      await submitReview(productId, { rating, review })
+      await submitReview(productId, { rating, text: review })
 
       alert('Review submitted successfully')
     } catch (error) {
@@ -33,19 +28,21 @@ const ReviewForm = ({ productId }: { productId: string }) => {
   }
 
   return (
-    <form className={s.r_form} onSubmit={handleSubmit}>
+    <div className={s.r_form}>
       <h1>Leave a Review for this product.</h1>
       <BaseInput
         type="number"
+        min={0}
+        max={5}
         className={s.r_name}
         placeholder="Set the rating"
         onChange={(e) => setRating(e.currentTarget.valueAsNumber)}
       />
       <textarea className={s.r_textarea} value={review} onChange={(e) => setReview(e.target.value)}></textarea>
-      <BaseButton className={s.r_btn} type="submit">
+      <BaseButton className={s.r_btn} type="button" onClick={handleSubmit}>
         Send
       </BaseButton>
-    </form>
+    </div>
   )
 }
 

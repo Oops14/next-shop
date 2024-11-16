@@ -1,6 +1,7 @@
-'use client'
+'use server'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { FC } from 'react'
 
@@ -8,30 +9,25 @@ import img from '@/assets/images/hoodie_3_front.webp'
 
 import { ProductType } from '@/types/ProductType'
 
-import BaseButton from '@/ui/baseButton/BaseButton'
-
 import s from './Product.module.scss'
 
-const Product: FC<ProductType> = ({ title, description }) => {
+const Product: FC<ProductType> = ({ id, title, description }) => {
   return (
     <div className={s.product_grid_item}>
       <div className={s.product_top}>
         <div className={s.product_image}>
-          <a href="#">
+          <Link href={`/products/${id}`}>
             <Image src={img} alt={title} />
-          </a>
+          </Link>
         </div>
       </div>
       <div className={s.product_bottom}>
         <div className={s.product_title}>
-          <a href="#">{title}</a>
+          <Link href={`/products/${id}`}>{title}</Link>
         </div>
+
         <p>{description}</p>
         <div className={s.product_price}>Free</div>
-        <div className={s.bottom_buttons}>
-          <BaseButton>Add to cart</BaseButton>
-          <BaseButton>Leave Review</BaseButton>
-        </div>
       </div>
     </div>
   )

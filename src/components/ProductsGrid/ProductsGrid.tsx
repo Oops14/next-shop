@@ -15,18 +15,16 @@ interface ProductsGridProps {
 const ProductsGrid: FC<ProductsGridProps> = ({ products }) => {
   return (
     <div className={s.products_grid}>
-      {products.map((i) => {
-        return (
-          <Product
-            key={i.id}
-            title={i.title}
-            id={i.id}
-            description={i.description}
-            created_at={i.created_at}
-            updated_at={i.updated_at}
-          />
-        )
-      })}
+      {products.map((i) => (
+        <Product
+          key={i.id}
+          title={i.title}
+          id={i.id}
+          description={i.description}
+          created_at={i.created_at}
+          updated_at={i.updated_at}
+        />
+      ))}
     </div>
   )
 }

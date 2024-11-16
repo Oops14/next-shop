@@ -1,6 +1,6 @@
 'use client'
 
-import LoginForm from '@/modules/auth/loginForm/LoginForm'
+import Form from '@/modules/auth/form/Form'
 
 import s from './page.module.scss'
 
@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div className={s.login_page}>
       <div className={s.container}>
-        <LoginForm />
+        <Form />
       </div>
     </div>
   )

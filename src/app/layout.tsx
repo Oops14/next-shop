@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { isAuthenticated } from '@/modules/auth'
+import { isAuthenticated } from '@/services/auth'
 
 import Header from '@/components/header/Header'
 

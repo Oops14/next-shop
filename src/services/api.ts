@@ -22,10 +22,14 @@ export const getProductById = async (id: number) => {
     throw new Error(`HTTP error! status: ${res.status}`)
   }
 
-  return await res.json()
+  const data = await res.json()
+
+  return data
 }
 
-export const submitReview = async (productId: string, reviewData: { rating: number; review: string }) => {
+export const submitReview = async (productId: number, reviewData: { rating: number; text: string }) => {
+  console.log(reviewData)
+
   const res = await fetch(`http://localhost:8000/api/v1/products/${productId}/reviews`, {
     method: 'POST',
     headers: {
@@ -35,6 +39,8 @@ export const submitReview = async (productId: string, reviewData: { rating: numb
   })
 
   if (!res.ok) {
+    const errorData = await res.json()
+    console.error('Server response:', errorData)
     throw new Error(`HTTP error! status: ${res.status}`)
   }
 
