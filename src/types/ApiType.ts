@@ -6,19 +6,20 @@ export type PaginationType = {
   total: number
 }
 
-export type ProductsApi = {
-  data: {
-    items: ProductType[]
-    pagination: PaginationType
-  }
+export interface BaseApiResponse<T> {
+  data: T
   meta: Record<string, unknown>
   errors: (string | null)[]
 }
 
-export interface TokenApiResponse {
-  data: {
-    token: string
-  }
-  meta: Record<string, unknown>
-  errors: (string | null)[]
-}
+export type BaseApiResponseResponse = BaseApiResponse<{
+  items: ProductType[]
+  pagination: PaginationType
+}>
+
+export type ProductsApiResponse = BaseApiResponse<{
+  items: ProductType[]
+  pagination: PaginationType
+}>
+
+export type TokenApiResponse = BaseApiResponse<{ token: string }>

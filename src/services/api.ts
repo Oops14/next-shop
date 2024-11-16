@@ -28,8 +28,6 @@ export const getProductById = async (id: number) => {
 }
 
 export const submitReview = async (productId: number, reviewData: { rating: number; text: string }) => {
-  console.log(reviewData)
-
   const res = await fetch(`http://localhost:8000/api/v1/products/${productId}/reviews`, {
     method: 'POST',
     headers: {
