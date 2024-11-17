@@ -4,7 +4,7 @@ import { FC } from 'react'
 
 import AuthLink from '@/components/header/authLink/AuthLink'
 
-import HeaderMenu from '@/shared/headerMenu/HeaderMenu'
+import NavigationMenu from '@/shared/navigationMenu/NavigationMenu'
 
 import s from './Header.module.scss'
 
@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = ({ isAuthenticated }) => {
         </div>
         <div className={s.header_bottom}>
           <div className={s.header_bottom__inner}>
-            <HeaderMenu />
+            <NavigationMenu />
           </div>
         </div>
       </div>

@@ -17,7 +17,8 @@ const ReviewForm = ({ productId }: { productId: number }) => {
     e.preventDefault()
 
     try {
-      await submitReview(productId, { rating, text: review })
+      const rev = await submitReview(productId, { rating, text: review })
+      console.log(rev)
 
       alert('Review submitted successfully')
     } catch (error) {
@@ -29,7 +30,7 @@ const ReviewForm = ({ productId }: { productId: number }) => {
 
   return (
     <div className={s.r_form}>
-      <h1>Leave a Review for this product.</h1>
+      <h1>Leave Review for this product.</h1>
       <BaseInput
         type="number"
         min={0}

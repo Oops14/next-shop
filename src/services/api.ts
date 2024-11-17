@@ -1,9 +1,8 @@
 'use server'
 
-/**
- * TODO: Implement Error handling.
- */
-const BASE_URL = 'http://localhost:8000/api/v1'
+import { env } from 'process'
+
+const BASE_URL = env.VITE_API_URL
 
 export const getAllProducts = async () => {
   const res = await fetch(`${BASE_URL}/products`, { next: { revalidate: 0 } })
@@ -28,7 +27,7 @@ export const getProductById = async (id: number) => {
 }
 
 export const submitReview = async (productId: number, reviewData: { rating: number; text: string }) => {
-  const res = await fetch(`http://localhost:8000/api/v1/products/${productId}/reviews`, {
+  const res = await fetch(`${BASE_URL}/products/${productId}/reviews`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

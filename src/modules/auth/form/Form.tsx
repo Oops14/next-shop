@@ -8,7 +8,6 @@ import LoginForm from '@/modules/auth/form/loginForm/LoginForm'
 import RegisterForm from '@/modules/auth/form/registerForm/RegisterForm'
 
 import { login, register } from '@/services/auth'
-import { createSession } from '@/services/session'
 
 import { TokenApiResponse } from '@/types/ApiType'
 
@@ -25,10 +24,10 @@ const Form = () => {
   const handleLogin = async () => {
     try {
       const data: TokenApiResponse = await login(phone, code)
-
       setError(null)
 
-      await createSession(data.data.token)
+      // await createSession(data.data.token)
+
       router.push('/')
     } catch (err: any) {
       setError(err.message)

@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, FC } from 'react'
 
 import clsx from 'clsx'
 
-interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 import s from './BaseButton.module.scss'
 

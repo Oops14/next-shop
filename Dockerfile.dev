@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+WORKDIR /main
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --pure-lockfile --cache-folder ./yarncache && rm -rf ./yarncache
+
+COPY ./src ./src
+
+EXPOSE 3000
+
+# Command to run the application (you can override this in docker-compose or when running the container)
+CMD ["yarn", "dev"]

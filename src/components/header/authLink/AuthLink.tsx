@@ -5,8 +5,6 @@ import { useRouter } from 'next/navigation'
 
 import { FC } from 'react'
 
-import { deleteSession } from '@/services/session'
-
 interface AuthLinkProps {
   isAuthenticated: boolean
 }
@@ -15,7 +13,7 @@ const AuthLink: FC<AuthLinkProps> = ({ isAuthenticated }) => {
   const router = useRouter()
 
   const handleLogout = async () => {
-    await deleteSession()
+    // await deleteSession()
 
     router.push('/login')
   }

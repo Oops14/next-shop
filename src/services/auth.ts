@@ -2,10 +2,12 @@
 
 import { cookies } from 'next/headers'
 
-const BASE_URL = 'http://localhost:8000/api/v1'
+import { env } from 'process'
+
+const BASE_URL = env.VITE_API_URL
 
 export const login = async (phone: string, code: string) => {
-  const res = await fetch(`http://localhost:8000/api/v1/customers/confirm`, {
+  const res = await fetch(`${BASE_URL}/customers/confirm`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
