@@ -9,8 +9,6 @@ import RegisterForm from '@/modules/auth/form/registerForm/RegisterForm'
 
 import { login, register } from '@/services/auth'
 
-import { TokenApiResponse } from '@/types/ApiType'
-
 import s from './Form.module.scss'
 
 const Form = () => {
@@ -23,14 +21,16 @@ const Form = () => {
 
   const handleLogin = async () => {
     try {
-      const data: TokenApiResponse = await login(phone, code)
+      await login(phone, code)
       setError(null)
 
-      // await createSession(data.data.token)
-
       router.push('/')
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError('An unknown error occurred')
+      }
     }
   }
 
@@ -42,8 +42,9 @@ const Form = () => {
 
       setIsLogin(true)
       setError(null)
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      const error = err as Error
+      setError(error.message)
     }
   }
 

@@ -2,26 +2,28 @@
 
 import { env } from 'process'
 
-const BASE_URL = env.VITE_API_URL
+import { BaseApiResponse } from '@/types/ApiType'
+import { ProductType } from '@/types/ProductType'
+
+import { ProductsSetvices } from './ProductsServices'
+
+const BASE_URL = env.VITE_API_URL || 'http://localhost:8000/api/v1'
 
 export const getAllProducts = async () => {
-  const res = await fetch(`${BASE_URL}/products`, { next: { revalidate: 0 } })
+  const productService = new ProductsSetvices(BASE_URL, { next: { revalidate: 0 } } as NextFetchRequestConfig)
+  const data = productService.getAllProducts('products')
 
-  if (!res.ok) {
-    throw new Error(`HTTP error! status: ${res.status}`)
-  }
-
-  return await res.json()
+  return data
 }
 
-export const getProductById = async (id: number) => {
+export const getProductById = async (id: string) => {
   const res = await fetch(`${BASE_URL}/products/${id}`, { next: { revalidate: 0 } })
 
   if (!res.ok) {
     throw new Error(`HTTP error! status: ${res.status}`)
   }
 
-  const data = await res.json()
+  const data: BaseApiResponse<ProductType> = await res.json()
 
   return data
 }

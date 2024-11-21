@@ -17,12 +17,12 @@ import Typography from '@/ui/typography/Typography'
 import s from '../../page.module.scss'
 
 interface PageProps {
-  params: { product_id: string }
+  params: Promise<{ product_id: string }>
 }
 
 const Page: FC<PageProps> = async ({ params }) => {
   const { product_id } = await params
-  const product = await getProductById(Number(product_id))
+  const product = await getProductById(product_id)
   const productData: ProductType = product.data
 
   return (

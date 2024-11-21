@@ -13,8 +13,6 @@ const AuthLink: FC<AuthLinkProps> = ({ isAuthenticated }) => {
   const router = useRouter()
 
   const handleLogout = async () => {
-    // await deleteSession()
-
     router.push('/login')
   }
 

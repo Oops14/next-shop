@@ -1,14 +1,13 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
-WORKDIR /main
+WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package*.json ./
 
-RUN yarn install --pure-lockfile --cache-folder ./yarncache && rm -rf ./yarncache
+RUN npm ci install --legacy-peer-deps
 
-COPY ./src ./src
+COPY . . 
 
-EXPOSE 3000
+RUN npm run build
 
-# Command to run the application (you can override this in docker-compose or when running the container)
-CMD ["yarn", "dev"]
+CMD ["npm", "start"]
