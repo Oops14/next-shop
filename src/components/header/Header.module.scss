@@ -8,10 +8,15 @@
 
 .main_header {
   height: 130px;
-  background-color: #2c2d34;
-  color: #d5d9db;
+  background-color: transparent;
+  color: #333;
 
   margin-bottom: 40px;
+
+  > div {
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+  }
 }
 
 .main_header,
@@ -35,30 +40,6 @@
   flex: 1 1 0;
 }
 
-
-
-.header_bottom__mini_cart {
-  display: block;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width: 175px;
-
-  span {
-    color: #d5d9db;
-  }
-
-  .header_bottom__item_counter {
-    margin-left: 15px;
-    font-size: 12px;
-    color: #86898d;
-  }
-
-  &:hover {
-    background-color: #635c5c;
-    opacity: 0.7;
-  }
-}
-
 .header_top__right_menu {
   display: flex;
   align-items: center;
@@ -66,6 +47,6 @@
 }
 
 .active {
-  color: #fff !important;
-  border-bottom: 2px solid #fff;
+  color: #d94242 !important;
+  border-bottom: 2px solid #d94242;
 }

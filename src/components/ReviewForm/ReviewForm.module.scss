@@ -4,19 +4,45 @@
   margin-bottom: 30px;
 
   border-radius: 10px;
+  background-color: transparent;
 }
 
 .r_form {
   display: flex;
   flex-direction: column;
   align-items: start;
+
+  width: 100%;
+  max-width: 600px;
+  font-size: 14px;
 }
+
+.reviews__inner {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.reviews {
+  width: 100%;
+  max-width: 600px;
+  font-size: 14px;
+}
+
 .r_btn {
   border-radius: 10px !important;
   width: 100%;
+  max-width: 120px;
 }
 
 .r_name {
   height: 50px !important;
   margin-bottom: 30px;
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.r_form__block_btn {
+  width: 100%;
+  text-align: right;
 }

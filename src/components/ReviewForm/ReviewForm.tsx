@@ -6,6 +6,7 @@ import { submitReview } from '@/services/api'
 
 import BaseButton from '@/ui/baseButton/BaseButton'
 import BaseInput from '@/ui/baseInput/BaseInput'
+import Typography from '@/ui/typography/Typography'
 
 import s from './ReviewForm.module.scss'
 
@@ -29,21 +30,31 @@ const ReviewForm = ({ productId }: { productId: number }) => {
   }
 
   return (
-    <div className={s.r_form}>
-      <h1>Leave Review for this product.</h1>
-      <BaseInput
-        type="number"
-        min={0}
-        max={5}
-        className={s.r_name}
-        placeholder="Set the rating"
-        onChange={(e) => setRating(e.currentTarget.valueAsNumber)}
-      />
-      <textarea className={s.r_textarea} value={review} onChange={(e) => setReview(e.target.value)}></textarea>
-      <BaseButton className={s.r_btn} type="button" onClick={handleSubmit}>
-        Send
-      </BaseButton>
-    </div>
+    <>
+      <div className={s.reviews__inner}>
+        <div className={s.reviews}>
+          <Typography tag="h6">Reviews</Typography>
+          <div className={s.reviews__list}>There are no reviews yet.</div>
+        </div>
+
+        <div className={s.r_form}>
+          <BaseInput
+            type="number"
+            min={0}
+            max={5}
+            className={s.r_name}
+            placeholder="Set the rating"
+            onChange={(e) => setRating(e.currentTarget.valueAsNumber)}
+          />
+          <textarea className={s.r_textarea} value={review} onChange={(e) => setReview(e.target.value)}></textarea>
+          <div className={s.r_form__block_btn}>
+            <BaseButton className={s.r_btn} type="button" onClick={handleSubmit}>
+              Send
+            </BaseButton>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
