@@ -7,6 +7,7 @@ import { getAllProducts } from '@/services/api'
 import { ProductsApiResponse } from '@/types/ApiType'
 
 import Typography from '@/ui/typography/Typography'
+import BaseButton from '@/ui/baseButton/BaseButton'
 
 import s from './page.module.scss'
 
@@ -18,9 +19,12 @@ export default async function Home() {
     <div className={s.page}>
       <main className={s.main}>
         <div className={s.container}>
-          <Typography className={s.title_center} tag="h2">
-            Products
-          </Typography>
+          <div className={s.title_grid_panel}>
+            <Typography tag="h2" className={s.title_grid_panel__title}>
+              Popular Products
+            </Typography>
+            <BaseButton href="/products">Browse all products</BaseButton>
+          </div>
 
           <ProductsGrid products={products} />
         </div>

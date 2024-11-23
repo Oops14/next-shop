@@ -2,9 +2,9 @@ import ProductsGrid from '@/components/ProductsGrid/ProductsGrid'
 
 import { getAllProducts } from '@/services/api'
 
-import { ProductsApiResponse } from '@/types/ApiType'
+import PageTitle from '@/shared/pageTitle/PageTitle'
 
-import Typography from '@/ui/typography/Typography'
+import { ProductsApiResponse } from '@/types/ApiType'
 
 import s from '../page.module.scss'
 
@@ -13,15 +13,14 @@ const Shop = async () => {
   const products = res.data.items
 
   return (
-    <div className={s.container}>
-      <div>
-        <Typography tag="h2" className={s.title_center}>
-          Shop page
-        </Typography>
-
-        <ProductsGrid products={products} />
+    <>
+      <PageTitle>Shop page</PageTitle>
+      <div className={s.container}>
+        <div>
+          <ProductsGrid products={products} />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -16,3 +16,13 @@
 
   margin-bottom: 100px;
 }
+
+.title_grid_panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title_grid_panel__title {
+  margin-bottom: 0;
+}
