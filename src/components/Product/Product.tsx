@@ -13,7 +13,7 @@ import s from './Product.module.scss'
 
 const Product: FC<ProductType> = ({ id, title, description }) => {
   return (
-    <div className={s.product_grid_item}>
+    <div className={s.product_grid_item} data-testid="product-item">
       <div className={s.product_top}>
         <div className={s.product_image}>
           <Link href={`/products/${id}`}>

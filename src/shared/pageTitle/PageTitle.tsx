@@ -8,7 +8,7 @@ interface PageTitleProps extends PropsWithChildren<{}> {}
 
 const PageTitle: FC<PageTitleProps> = ({ children }) => {
   return (
-    <div className={s.page_title}>
+    <div className={s.page_title} data-testid="page-title">
       <Typography tag="h1" className={s.page_title__title}>
         {children}
       </Typography>

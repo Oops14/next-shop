@@ -20,7 +20,7 @@ export default async function Home() {
       <main className={s.main}>
         <div className={s.container}>
           <div className={s.title_grid_panel}>
-            <Typography tag="h2" className={s.title_grid_panel__title}>
+            <Typography tag="h2" className={s.title_grid_panel__title} data-testid="home-title">
               Popular Products
             </Typography>
             <BaseButton href="/products">Browse all products</BaseButton>

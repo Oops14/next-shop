@@ -15,14 +15,14 @@ export interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
 const BaseButton: FC<BaseButtonProps> = ({ href, ...props }) => {
   if (href) {
     return (
-      <Link href={href} className={clsx(s.btn, props.className)}>
+      <Link href={href} className={clsx(s.btn, props.className)} data-testid="browse-button">
         {props.children}
       </Link>
     )
   }
 
   return (
-    <button {...props} className={clsx(s.btn, props.className)}>
+    <button {...props} className={clsx(s.btn, props.className)} data-testid="browse-button">
       {props.children}
     </button>
   )
