@@ -41,4 +41,8 @@ export class ProductsSetvices implements IProductsServices {
   public getAllProducts(url: string) {
     return this.baseFetch(url)
   }
+
+  public getProduct(id: string) {
+    return this.baseFetch(id)
+  }
 }
