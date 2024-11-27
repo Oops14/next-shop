@@ -2,7 +2,7 @@
 
 import { env } from 'process'
 
-import { ProductsSetvices } from './ProductsServices'
+import { ProductsServices } from './ProductsServices'
 
 const BASE_URL = env.VITE_API_URL || 'http://localhost:8000/api/v1'
 
@@ -13,7 +13,7 @@ const BASE_URL = env.VITE_API_URL || 'http://localhost:8000/api/v1'
  * @throws {Error} - Throws an error if the HTTP request fails.
  */
 export const getAllProducts = async () => {
-  const productService = new ProductsSetvices(BASE_URL, { next: { revalidate: 0 } } as NextFetchRequestConfig)
+  const productService = new ProductsServices(BASE_URL, { next: { revalidate: 0 } } as NextFetchRequestConfig)
   const data = productService.getAllProducts('products')
 
   return data
@@ -27,7 +27,7 @@ export const getAllProducts = async () => {
  * @throws {Error} - Throws an error if the HTTP request fails.
  */
 export const getProductById = async (id: string) => {
-  const productService = new ProductsSetvices(`${BASE_URL}/products`, {
+  const productService = new ProductsServices(`${BASE_URL}/products`, {
     next: { revalidate: 0 },
   } as NextFetchRequestConfig)
   const data = productService.getProduct(id)
@@ -37,6 +37,8 @@ export const getProductById = async (id: string) => {
 
 /**
  * Submits a review for a product.
+ *
+ * TODO: Change fetching base on the ProductServices object.
  *
  * @param {number} productId - The ID of the product to review.
  * @param {Object} reviewData - The review data.

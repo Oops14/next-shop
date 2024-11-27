@@ -1,6 +1,6 @@
 import { IProductsServices } from './IProductsServices'
 
-export class ProductsSetvices implements IProductsServices {
+export class ProductsServices implements IProductsServices {
   private baseUrl: string
   private config?: NextFetchRequestConfig
 
