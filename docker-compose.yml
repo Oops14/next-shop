@@ -8,6 +8,6 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./src:/main/src
-      - /main/node_modules
+      - .:/app
+      - /app/node_modules
     command: yarn dev
